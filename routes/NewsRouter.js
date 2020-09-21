@@ -1,9 +1,9 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const multer = require('multer')
-const crypto = require("crypto")
-const path = require('path')
-const GridFsStorage = require("multer-gridfs-storage")
+const crypto = require("crypto");
+const path = require("path");
+const multer = require("multer");
+const GridFsStorage = require("multer-gridfs-storage");
 const router = express.Router()
 const Article = require('../models/Schema')
 const Image = require('../models/Schema')
@@ -107,9 +107,9 @@ const storage = new GridFsStorage({
 })
 //const storage = new GridFsStorage({ url: mongoURI }) // soddaroq usuli
 
-// const upload = multer({
-//     storage
-// })
+const upload = multer({
+    storage
+})
 
 // route'lar
 router.get("/images", async (req, res) => {
@@ -162,17 +162,17 @@ router.post('/', (req, res) => {
     })
 })
 
-const upload = multer({ storage }).single('file');
-router.post("/upload", async (req, res) => {
+// const upload = multer({ storage }).single('file');
+router.post("/upload", upload.single('file'), async (req, res) => {
 
-    upload(req, res => {
-        let image = new Image({
-            uploadDate: req.body.uploadDate
-        })
-    })
-    await image.save()
-    res.send(image)
-    // res.redirect("/admin/news/images")
+    // upload(req, res => {
+    //     let image = new Image({
+    //         uploadDate: req.body.uploadDate
+    //     })
+    // })
+    // await image.save()
+    // res.send(image)
+    res.redirect("/admin/news/images")
 
 })
 

@@ -1,23 +1,18 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
-const multer = require('multer');
-const path = require('path')
-const crypto = require("crypto");
-const GridFsStorage = require("multer-gridfs-storage");
 const app = express()
-
 
 const articleRouter = require('./routes/articles')
 const usersRouter = require('./routes/user')
-const adminNewsRouter = require('./routes/adminNewsRouter')
+const adminNewsRouter = require('./routes/NewsRouter')
 
 mongoose.connect('mongodb+srv://Idrok:riskiddin98@cluster0.thx7q.mongodb.net/article', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true
 })
-.then(console.log('mongodbga ulandi...'))
+  .then(console.log('mongodbga ulandi...'))
 
 
 app.set('view engine', 'ejs')
