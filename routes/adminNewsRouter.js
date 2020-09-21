@@ -159,71 +159,72 @@ router.post('/', (req, res) => {
         //res.redirect('/')
         res.redirect('/')
         console.log('success');
-    })})
-
-    const upload = multer({ storage }).single('file');
-    router.post("/upload", async (req, res) => {
-
-        upload(req, res => {
-            let image = new Image({
-                uploadDate: req.body.uploadDate
-            })
-        })
-        await image.save()
-        res.send(image)
-        // res.redirect("/admin/news/images")
-
     })
+})
 
-    router.get("/files", (req, res) => {
-        gfs.find().toArray((err, files) => {
-            // fayl mavjudligini tekshiramiz
-            if (!files || files.length === 0) {
+const upload = multer({ storage }).single('file');
+router.post("/upload", async (req, res) => {
+
+    upload(req, res => {
+        let image = new Image({
+            uploadDate: req.body.uploadDate
+        })
+    })
+    await image.save()
+    res.send(image)
+    // res.redirect("/admin/news/images")
+
+})
+
+router.get("/files", (req, res) => {
+    gfs.find().toArray((err, files) => {
+        // fayl mavjudligini tekshiramiz
+        if (!files || files.length === 0) {
+            return res.status(404).json({
+                err: "bironta ham fayl mavjud emas"
+            })
+        }
+
+        return res.json(files)
+    })
+})
+
+router.get("/files/:filename", (req, res) => {
+    gfs.find(
+        {
+            filename: req.params.filename
+        },
+        (err, file) => {
+            if (!file) {
                 return res.status(404).json({
-                    err: "bironta ham fayl mavjud emas"
+                    err: "bunday fayl mavjud emas"
                 })
             }
 
-            return res.json(files)
+            return res.json(file)
+        }
+    )
+})
+
+router.get("/image/:filename", (req, res) => {
+    const file = gfs
+        .find({
+            filename: req.params.filename
         })
-    })
-
-    router.get("/files/:filename", (req, res) => {
-        gfs.find(
-            {
-                filename: req.params.filename
-            },
-            (err, file) => {
-                if (!file) {
-                    return res.status(404).json({
-                        err: "bunday fayl mavjud emas"
-                    })
-                }
-
-                return res.json(file)
-            }
-        )
-    })
-
-    router.get("/image/:filename", (req, res) => {
-        const file = gfs
-            .find({
-                filename: req.params.filename
-            })
-            .toArray((err, files) => {
-                gfs.openDownloadStreamByName(req.params.filename).pipe(res)
-            })
-    })
-
-    // files/del/:id
-    // faylni database'dan o'chiramiz
-    router.post("/files/del/:id", (req, res) => {
-        gfs.delete(new mongoose.Types.ObjectId(req.params.id), (err, data) => {
-            if (err)
-                return res.status(404).json({ err: err.message })
-
-            res.redirect("/admin/news/images")
+        .toArray((err, files) => {
+            gfs.openDownloadStreamByName(req.params.filename).pipe(res)
         })
-    })
+})
 
-    module.exports = router
+// files/del/:id
+// faylni database'dan o'chiramiz
+router.post("/files/del/:id", (req, res) => {
+    gfs.delete(new mongoose.Types.ObjectId(req.params.id), (err, data) => {
+        if (err)
+            return res.status(404).json({ err: err.message })
+
+        res.redirect("/admin/news/images")
+    })
+})
+
+module.exports = router

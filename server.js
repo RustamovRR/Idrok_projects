@@ -8,7 +8,6 @@ const GridFsStorage = require("multer-gridfs-storage");
 const app = express()
 
 
-const Article = require('./models/Schema')
 const articleRouter = require('./routes/articles')
 const usersRouter = require('./routes/user')
 const adminNewsRouter = require('./routes/adminNewsRouter')
