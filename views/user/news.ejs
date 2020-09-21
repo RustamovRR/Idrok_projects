@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yangiliklar </title>
+    <link rel="shortcut icon" href="/SVG/logo.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/news.css">
+
+</head>
+
+<body>
+    <header>
+        <a href="/"><img class="logo" src="/SVG/logo.svg" alt="Logo idrok_talim"></a>
+        <div class="menu_btn" id="btn_menu">
+            <div class="burger1"></div>
+            <div class="burger2"></div>
+            <div class="burger3"></div>
+        </div>
+    </header>
+
+    <!-- Top container -->
+    <%- include('top_menu') %>
+
+    <div class="container">
+        <nav class="nav">
+            <div class="nav_link">
+                <li><a class="link active" href="#All">Barchasi</a></li>
+                <li><a class="link" href="#Design">Dizayn</a></li>
+                <li><a class="link" href="#Developer">Dasturlash</a></li>
+                <li><a class="link" href="#Marketing">Marketing</a></li>
+                <li><a class="link" href="#Data">Ma'lumot</a></li>
+            </div>
+        </nav>
+
+        <nav class="mob_nav">
+            <div class="mob_nav_link">
+                <li><a id="mob_link active" href="#mAll">Barchasi</a></li>
+                <li><a id="mob_link" href="#mDesign">Dizayn</a></li>
+                <li><a id="mob_link" href="#mDeveloper">Dasturlash</a></li>
+                <li><a id="mob_link" href="#mMarketing">Marketing</a></li>
+                <li><a id="mob_link" href="#mData">Ma'lumot</a></li>
+            </div>
+        </nav>
+
+        <!-- Text_box//////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <section class="text_box">
+            <div class="text">
+                <h2>UX Visual & Product Dizayn bo'yicha yangiliklar.</h2>
+                <p>DIZAYNERLAR UCHUN</p>
+            </div>
+        </section>
+
+        <!-- Container////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <div class="container_wrapper">
+            <section class="content">
+                <% articles.map((post) => { %>
+                <div id="l" class="double_box All ">
+                    <div class="image_box ">
+
+
+                        <div class="image_text_box">
+                            <h4 class="image_text_box_header"><%= post.title %></h4>
+                            <p><%= post.date %></p>
+                            <p><%= post.content %></p>
+                        </div>
+                        <a href="news/<%= post.id %>" class="read_more">KO'PROQ O'QING</a>
+                    </div>
+
+                    <% }) %>
+
+            </section>
+        </div>
+    </div>
+
+    <footer class="scroll">
+        <img src="../SVG/scroll icon.svg" alt="">
+    </footer>
+
+
+
+
+    <!-- Mobile////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <section class="mob_content">
+        <% articles.map((post) => { %>
+        <div id="mAll" class="double_box ">
+            <div class=" image_box ">
+                <img src="../images/DVnRH2_U8AEC35l.png" alt="">
+                <div class="image_text_box">
+                    <h4 class="image_text_box_header"><%- post.title %></h4>
+                    <p><%- post.date %></p>
+                    <p><%- post.content %></p>
+                </div>
+                <a href="user/read_more/<%= post._id %>" class="read_more">READ MORE</a>
+            </div>
+            <% }) %>
+
+    </section>
+
+    <div class="to_top" id="btn" onclick="topFunction()">
+        <img src="../SVG/arrow-up-s-line.svg" alt="">
+    </div>
+
+</body>
+<script src="/javascript/news.js"></script>
+
+</html>

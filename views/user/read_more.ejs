@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batafsil ma'lumot</title>
+    <link rel="shortcut icon" href="/SVG/logo.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/read_more.css">
+</head>
+
+<body>
+    <header>
+        <a href="/"><img class="logo" src="/SVG/logo-_2_.png" alt="idrok_ta'lim"></a>
+        <div class="menu_btn" id="btn_menu">
+            <div class="burger1"></div>
+            <div class="burger2"></div>
+            <div class="burger3"></div>
+        </div>
+    </header>
+
+    <!-- Top container -->
+    <%- include('top_menu') %>
+
+    <section class="container">
+        <div class="head_text_box">
+            <h2><%= article.title %></h2>
+            <div class="head_text">
+                <p><%= article.date %></p>
+                <a href="">All comments</a>
+            </div>
+        </div>
+
+        <div class="container_wrapper">
+            <section class="content">
+                <div class="text_box">
+                    <div class="image_box">
+                        <img src="../../images/DVnRH2_U8AEC35l@2x.png" alt="">
+                    </div>
+
+                    <div class="text text1">
+                        <p>
+                            <%= article.content %>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- <div class="text_box">
+                    <div class="text">
+                        <p>
+
+                        </p>
+                        <p>
+                        </p>
+                    </div>
+
+                    <div class="text">
+                        <p>
+                    </div>
+                </div> -->
+            </section>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <img src="../../SVG/scroll icon.svg" alt="">
+    </footer>
+
+
+    <!-- Mobile///////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <section class="mob_content">
+        <div class="mob_text_box">
+            <div class="image_box">
+                <img src="../../images/DVnRH2_U8AEC35l@2x.png" alt="">
+            </div>
+
+            <div class="mob_text mob_text1">
+                <p>
+                    <%= article.content %>
+                </p>
+            </div>
+        </div>
+
+        <!-- <div class="mob_text_box">
+            <div class="mob_text">
+                <p>
+                   
+                </p>
+                <p></p>
+            </div>
+
+            <div class="mob_text">
+                <p>
+                </p>
+                <p> </p>
+            </div>
+        </div> -->
+    </section>
+
+    <footer class="mob_footer">
+        <img src="../../SVG/scroll icon.svg" alt="">
+    </footer>
+
+
+    <div class="to_top" id="btn" onclick="topFunction()">
+        <img src="../../SVG/arrow-up-s-line.svg" alt="">
+    </div>
+
+</body>
+<script src="/javascript/read_more.js"></script>
+
+</html>

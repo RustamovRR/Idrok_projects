@@ -1,0 +1,599 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: "GT Eesti Pro Text Book";
+    src: url("../../Fonts/Gt\ Eesti\ Pro\ Book/@font-face/435d667718407271e1ae7a0269b6e1bd.ttf");
+}
+
+body {
+    font-family: GT Eesti Pro Text Book;
+    background-image: url('/SVG/idrok-dark.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-attachment: fixed;
+    color: #001607;
+}
+
+
+/* Top_menu////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+.top_container {
+    width: 100%;
+    display: flex;
+    position: absolute;
+    background-color: #fff;
+    top: -100vh;
+    z-index: 20;
+    transition: .8s ease-in-out;
+}
+
+.top_transform {
+    position: fixed;
+    top: 0;
+}
+
+.top_left {
+    width: 60vw;
+    height: 100vh;
+    display: flex;
+}
+
+.top_logo img {
+    width: 4vw;
+    height: 2.5vw;
+    object-fit: contain;
+    position: absolute;
+    top: 2.5vw;
+    left: 3vw;
+}
+
+.top_left_text_box {
+    width: 40%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top_left_text {
+    height: 25vw;
+    margin-top: 5vw;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.office_top_title {
+    color: #086420;
+    font-weight: bold;
+    margin-bottom: .5vw;
+}
+
+.office_top_body {
+    color: #001607;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.phone_top_body a{
+    text-decoration: none;
+    color: unset;
+}
+
+li {
+    list-style: none;
+}
+
+.social_img {
+    display: flex;
+    margin-top: 3vw;
+}
+
+.social_media img {
+    width: 1.5vw;
+    height: 1.5vw;
+    margin-right: 1vw;
+    transition: .5s;
+}
+
+.social_media img:hover {
+    transform: scale(1.2);
+}
+
+.image {
+    width: 60%;
+    height: 100vh;
+    background: url('/images/top\ menu\ background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+}
+
+.image img {
+    width: 40vw;
+    height: 100vh;
+}
+
+.top_right {
+    width: 40vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #052D19;
+    line-height: 2;
+}
+
+.top_right_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 2vw;
+}
+
+.top_link {
+    text-decoration: none;
+    color: #7F8B82;
+    font-size: 28px;
+    text-transform: uppercase;
+    position: relative;
+    transition: .5s;
+}
+
+.top_link:hover {
+    color: #fff;
+}
+
+.top_link::before,
+.top_link::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: #7F8B82;
+    position: absolute;
+    left: 0;
+    transform: scale(0);
+    transition: transform 0.5s;
+}
+
+.top_link::after {
+    bottom: 0;
+    transform-origin: right;
+}
+
+.top_link::before {
+    top: 0;
+    transform-origin: left;
+}
+
+.top_link:hover::before,
+.top_link:hover::after {
+    transform: scale(1);
+}
+
+
+
+/* header /////////////////////////////////////////////////////////////////////*/
+header {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 30px 50px;
+    position: absolute;
+    width: 100%;
+}
+
+.logo {
+    width: 54.3px;
+    height: 40px;
+}
+
+.logo:hover {
+    cursor: pointer;
+}
+
+.menu_btn {
+    justify-self: end;
+    align-self: end;
+    height: 22.8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.menu_btn:hover {
+    cursor: pointer;
+}
+
+.burger1 {
+    width: 14px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 4px;
+    margin-left: 7px;
+    transition: .5s ease-out;
+}
+
+.burger2 {
+    width: 22.8px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 4px;
+    transition: .5s ease-out;
+}
+
+.burger3 {
+    width: 14px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 4px;
+    margin-left: 2px;
+    transition: .5s ease-out;
+}
+
+.open .burger2 {
+    transform: translateX(-25px);
+    background: transparent;
+}
+
+.open .burger1 {
+    transform: rotate(45deg) translateY(10px) translateX(1px);
+    width: 23px;
+}
+
+.open .burger3 {
+    transform: rotate(-45deg) translateY(-10px) translateX(7px);
+    width: 23px;
+}
+
+
+/* Container/////////////////////////////////////////////////////////////////////////////////////////////////// */
+.container {
+    width: 100%;
+    height: 110vh;
+    display: flex;
+}
+
+.container_left {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_right {
+    width: 50%;
+    height: 100%;
+    background-image: url('/images/MLF2017_Randwick-00010@2x.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.top_left_text h1 {
+    font-size: 30px;
+}
+
+.container_left_text {
+    height: 70%;
+    justify-content: space-between;
+}
+
+
+/* Footer///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+footer {
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 8%;
+    padding-bottom: 10%;
+    display: flex;
+    justify-content: center;
+    background-color: #052D19;
+}
+
+.foot_container {
+    width: 83%;
+    height: auto;
+}
+
+.foot_first_text {
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.border {
+    width: 100%;
+    height: .1vw;
+    background-color: #101F0926;
+    margin: 4vw 0;
+}
+
+.menu a,
+.social a {
+    text-decoration: none;
+    color: initial;
+    transition: .5s;
+    color: #fff;
+}
+
+.menu a:hover,
+.social a:hover {
+    color: #8CC800;
+}
+
+.office_title,
+.contact_title,
+.menu_title,
+.social_title,
+.email_title {
+    font-size: 13px;
+    margin-bottom: 1.2vw;
+    color: #8CC800;
+}
+
+.office_body,
+.contact_body,
+.menu_body,
+.social_body {
+    font-size: 13px;
+    line-height: 2;
+    color: #fff;
+}
+
+.foot_second_part {
+    display: flex;
+    justify-content: space-between;
+}
+
+.foot_second_text {
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.email {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2vw;
+    width: 33%;
+}
+
+.email_input_box {
+    display: flex;
+    justify-content: center;
+    margin-top: 1vw;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 3%;
+}
+
+.email_input_box button {
+    border: none;
+    outline: none;
+    background: unset;
+    cursor: pointer;
+}
+
+.email_input_box button:hover {
+    animation: 1s form_button_anim 
+}
+
+.email_input_box img {
+    width: 1.5vw;
+    object-fit: cover;
+}
+
+#email_input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #fff;
+    background-color: transparent;
+}
+
+/* MEdia responsive///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+@media screen and (min-width:1500px) {
+
+    .office_top_title,
+    .office_top_body,
+    #email_input {
+        font-size: 20px;
+    }
+
+    .top_link,
+    .top_left_text h1 {
+        font-size: 40px;
+    }
+
+    .gallery_nav a,
+    .team_nav a {
+        padding-bottom: 9px;
+    }
+
+    .top_left_text,
+    .office_title,
+    .contact_title,
+    .menu_title,
+    .social_title,
+    .email_title,
+    .office_body,
+    .contact_body,
+    .menu_body,
+    .social_body {
+        font-size: 18px;
+    }
+
+    #email_input {
+        font-size: 22px;
+    }
+}
+
+
+@media screen and (max-width:770px) {
+    .top_left_text_box {
+        display: none;
+    }
+
+    .image {
+        width: 100%;
+    }
+
+    .top_right {
+        width: 60vw;
+    }
+
+    .office_top_body {
+        line-height: 2;
+    }
+
+    .social_media img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .email_input_box img {
+        width: 15px;
+    }
+
+    .foot_first_text {
+        width: 50%;
+    }
+
+    .foot_second_text {
+        width: 46%;
+    }
+}
+
+
+@media screen and (max-width:480px) {
+
+    .burger1,
+    .burger2,
+    .burger3 {
+        background-color: #086420;
+    }
+
+    .top_left {
+        display: none;
+    }
+
+    .top_right {
+        width: 100vw;
+    }
+
+
+    .logo {
+        width: 35px;
+        height: 25px;
+        z-index: 100;
+    }
+
+    header h1 {
+        font-size: 15vw;
+    }
+
+    .menu_btn {
+        height: 12px;
+    }
+
+    .burger1 {
+        width: 7px;
+        height: 2px;
+        margin-left: 4px;
+    }
+
+    .burger2 {
+        width: 13px;
+        height: 2px;
+    }
+
+    .burger3 {
+        width: 7px;
+        height: 2px;
+        margin-left: 1px;
+    }
+
+    .open .burger2 {
+        transform: translateX(-10px);
+        background: transparent;
+    }
+
+    .open .burger1 {
+        transform: rotate(45deg) translateY(2px) translateX(3px);
+        width: 10px;
+    }
+
+    .open .burger3 {
+        transform: rotate(-45deg) translateY(-2px) translateX(7px);
+        width: 10px;
+    }
+
+    .container_right {
+        width: 0;
+    }
+
+    .container_left {
+        width: 100%;
+    }
+
+    .container_left_text {
+        width: 100%;
+        margin-left: 20%;
+    }
+
+    .foot_first_text,
+    .foot_second_text {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .office,
+    .contact,
+    .menu,
+    .social,
+    .email {
+        margin-bottom: 10vw;
+    }
+
+    .email {
+        width: 60%;
+    }
+
+    .email_input_box {
+        margin-top: 4vw;
+    }
+
+    .email_input_box img {
+        width: 4vw;
+    }
+
+    .foot_first_text {
+        width: 50%;
+    }
+
+    .foot_second_text {
+        width: 46%;
+    }
+}
+
+@keyframes form_button_anim {
+    0% {
+        margin-right: 0;
+    }
+
+    50% {
+        margin-right: -10px;
+    }
+
+    100% {
+        margin-right: 0;
+    }
+}

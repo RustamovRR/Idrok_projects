@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biz bilan bog'laning</title>
+    <link rel="shortcut icon" href="SVG/logo.svg" type="image/x-icon">
+
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/contact_link.css">
+</head>
+
+<body>
+    <header>
+        <a href="/"><img class="logo" src="/SVG/logo-_2_.png" alt="idrok talim logo"></a>
+        <div class="menu_btn" id="btn_menu">
+            <div class="burger1"></div>
+            <div class="burger2"></div>
+            <div class="burger3"></div>
+        </div>
+    </header>
+
+    <!-- Top container -->
+    <%- include('top_menu') %>
+
+    <div class="container">
+        <section class="send_box">
+            <h1 class="send_title">Aloqa uchun ma'lumotingizni qoldiring - ikkilanmasdan biz bilan bog'laning!</h1>
+
+            <form action="/">
+                <label for="send_phone">Telefon raqam</label>
+                <input type="tel" name="name" id="send_phone" required>
+
+                <label for="send_email">Email address</label>
+                <input type="email" name="email" id="send_email" required>
+
+                <button>Yuborish</button>
+            </form>
+        </section>
+    </div>
+
+    <a href="+998994942741">phone</a>
+
+</body>
+<script src="/javascript/contact_link.js"></script>
+
+</html>

@@ -1,0 +1,125 @@
+<%- include('header') %>
+
+<div class="container" style="width: 80%; margin-top:10%; margin-left: 20%;">
+    <h1 class="text-success">Create course post</h1>
+    <form method="POST" onsubmit="return doPost(this)">
+
+        <!-- Button trigger modal -->
+        <button class="btn btn-primary" data-toggle="modal" data-target="#myModal" type="button">
+            Upload image
+        </button><br><br>
+
+        <div for="title" class="form-group">
+            <label>Title</label>
+            <input id="title" name="title" class="form-control" placeholder="title" required>
+        </div>
+
+        <div for="title" class="form-group">
+            <label>Content</label>
+            <textarea id="content" name="content" class="form-control" placeholder="content" rows="10"> </textarea>
+        </div>
+
+        <input type="submit" class="btn btn-success" value="Post">
+    </form>
+</div>
+
+</div><!-- /.modal -->
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+                <form method="POST" enctype="multipart/form-data" id="form-upload">
+                    <div class="form-group">
+                        <input type="file" name="file" class="form-control">
+                    </div>
+                    <input type="submit" class="btn btn-success" value="Upload">
+                </form>
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+
+</div><!-- /.modal -->
+
+
+<main>
+    <div class="card-body mt-4" style="width: 80%; margin-left: 20%;">
+        <h1 class="text-info">All course posts</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Content</th>
+                        <th>Create date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td><%=  %></td>
+                        <td><%=  %></td>
+                        <td><%=  %></td>
+                        <td class="d-inline-block">
+                            <a href="//edit/<%=  %>" class="btn btn-success btn-sm">Edit</a>
+
+                            <button class="btn btn-danger btn-sm" type="button"
+                                onclick="doDelete('<%=  %>')">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>d
+
+<%- include('footer') %>
+
+<script>
+    function doPost(form) {
+        $.ajax({
+            url: "/do-course-post",
+            method: "POST",
+            data: {
+                title: form.title.value,
+                content: form.content.value,
+                inputDate: form.date.value,
+                defaultDate: new Date().toLocaleString()
+
+            },
+            success: function (response) {
+                alert(response)
+            }
+        })
+        return false
+    }
+
+
+    function doDelete(postId, image) {
+
+        if (confirm('Xabar o\'chirilsinmi?')) {
+            $.ajax({
+                url: '/do-course-delete',
+                method: 'POST',
+                data: {
+                    '_id': postId
+                },
+                success: function (res) {
+                    alert(res)
+                }
+            })
+        }
+    }
+
+</script>

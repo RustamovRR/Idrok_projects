@@ -1,0 +1,30 @@
+<%- include('header') %>
+
+<div class="container" style="width: 70%; margin-top:10%; margin-left:20%;">
+    <form method="POST" action="/articles/<%= article.id %>?_method=PUT">
+
+        <!-- Button trigger modal -->
+        <button class="btn btn-primary" data-toggle="modal" data-target="#myModal" type="button">
+            Upload image
+        </button><br><br>
+
+        <div for="title" class="form-group">
+            <label>Title</label>
+            <input id="title" name="title" class="form-control" value="<%= article.title %>"  placeholder=" title">
+        </div>
+
+        <div for="title" class="form-group">
+            <label>Content</label>
+            <textarea id="content" name="content" class="form-control" placeholder="title" rows="10">
+                <%= article.content %>
+            </textarea>
+        </div>
+
+        <div for="date" class="form-group">
+            <label>Sanani kiriting (for example:15-aug 2020)</label>
+            <textarea id="date" name="date" class="form-control" placeholder="date"><%=  %></textarea>
+        </div>
+
+        <input type="submit" class="btn btn-success" value="Edit">
+    </form>
+</div>

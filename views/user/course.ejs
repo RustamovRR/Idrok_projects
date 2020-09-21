@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurslar</title>
+    <link rel="shortcut icon" href="/SVG/logo.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/course.css">
+
+<body>
+    <header>
+        <a href="/"> <img class="logo" src="/SVG/logo.svg" alt="talim"></a>
+        <div class="menu_btn" id="btn_menu">
+            <div class="burger1"></div>
+            <div class="burger2"></div>
+            <div class="burger3"></div>
+        </div>
+    </header>
+
+    <!-- Top container -->
+    <%- include('top_menu') %>
+
+
+    <div class="container">
+        <nav class="nav">
+            <div class="nav_link" id='top_menu'>
+                <li><a class="link active" href="#design">Dizayn</a></li>
+                <li><a class="link" href="#developer">Dasturlash</a></li>
+                <li><a class="link" href="#marketing">Marketing</a></li>
+                <li><a class="link" href="#data">Ma'lumot</a></li>
+                <li><a class="link" href="#language">Tillar</a></li>
+                <li><a id="wireless" class="link" href="#wireless">Simsiz tarmoq</a></li>
+            </div>
+        </nav>
+
+        <nav class="mob_nav">
+            <div class="mob_nav_link">
+                <li><a class="mob_link active" href="#mDesign">Dizayn</a></li>
+                <li><a class="mob_link" href="#mDeveloper">Dasturlash</a></li>
+                <li><a class="mob_link" href="#mMarketing">Marketing</a></li>
+                <li><a class="mob_link" href="#mData">Ma'lumot</a></li>
+                <li><a class="mob_link" href="#mLanguage">Tillar</a></li>
+                <li><a id="mob_wireless" class="mob_link" href="#mWireless">Simsiz tarmoq</a></li>
+            </div>
+        </nav>
+
+        <section class="text_box ">
+            <div class="text">
+                <h2>Grafik va mahsulot dizayni kurslari</h2>
+                <a href="#" id="read_more">KO'PROQ O'QING</a>
+            </div>
+        </section>
+
+        <div class="container_wrapper">
+            <section class="content">
+                <div id="design" class="image_box ">
+                    <a href="/course_link"><img src="/images/component.png" alt="" onclick="fullScreen()"></a>
+                </div>
+
+                <div id="developer" class="image_box ">
+                    <a href="/course_link"><img src="/images/component (1).png" alt=""></a>
+                </div>
+
+                <div id="marketing" class="image_box ">
+                    <a href="/course_link"><img src="/images/component.png" alt=""></a>
+                </div>
+
+                <div id="data" class="image_box ">
+                    <a href="/course_link"><img src="/images/component (1).png" alt=""></a>
+                </div>
+
+                <div id="language" class="image_box ">
+                    <a href="/course_link"><img src="/images/component.png" alt=""></a>
+                </div>
+
+                <div id="wireless" class="image_box ">
+                    <a href="/course_link"><img src="/images/component (1).png" alt=""></a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <img src="../SVG/scroll icon.svg" alt="">
+    </footer>
+
+
+    <!-- Mobile/////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <section class="mob_content">
+        <div id="mDesign" class="mob_image_box ">
+            <a href="/course_link"><img src="/images/component.png" alt=""></a>
+        </div>
+
+        <div id="mDeveloper" class="mob_image_box ">
+            <a href="/course_link"><img src="/images/component (1).png" alt=""></a>
+        </div>
+
+        <div id="mMarketing" class="mob_image_box ">
+            <a href="/course_link"><img src="/images/component.png" alt=""></a>
+        </div>
+
+        <div id="mData" class="mob_image_box ">
+            <a href="/course_link"><img src="/images/component (1).png" alt=""></a>
+        </div>
+
+        <div id="mLanguage" class="mob_image_box ">
+            <a href="/course_link"><img src="/images/component.png" alt=""></a>
+        </div>
+
+        <div id="mWireless" class="mob_image_box ">
+            <a href="/course_link"><img src="/images/component (1).png" alt=""></a>
+        </div>
+    </section>
+
+    <footer class="mob_footer">
+        <img src="../SVG/arrow-up-s-line.svg" alt="">
+    </footer>
+
+    <div class="to_top" id="btn" onclick="topFunction()">
+        <img src="../SVG/arrow-up-s-line.svg" alt="">
+    </div>
+
+</body>
+<script src="/javascript/course.js"> </script>
+
+</html>

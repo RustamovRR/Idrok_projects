@@ -1,0 +1,59 @@
+{
+  "title": "Idrok",
+  "version": "6.0.1",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "description": "Idrok ta'lim - zamonaviy ta'lim.",
+  "keywords": [
+    "idrok",
+    "idroktalim",
+    "web",
+    "web dasturlash",
+    "react",
+    "nodejs",
+    "zamonaviy"
+  ],
+  "homepage": "https://idroktalim.uz",
+  "bugs": {
+    "url": "https://idroktalim.uz",
+    "email": "idrok@gmail.com"
+  },
+  "license": "MIT",
+  "author": "Rustamov Risqiddin",
+  "contributors": [
+    "Risqiddin Rustamov (http://idroktalim.uz/)"
+  ],
+  "repository": {
+    "type": "git"
+  },
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "dompurify": "^2.0.15",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "formidable": "^1.2.2",
+    "gridfs-stream": "^1.1.1",
+    "marked": "^1.1.1",
+    "method-override": "^3.0.0",
+    "mongodb": "^3.6.1",
+    "mongoose": "^5.9.4",
+    "multer": "^1.4.2",
+    "multer-gridfs-storage": "^4.2.0",
+    "slugify": "^1.4.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "9.8.0",
+    "browser-sync": "2.26.7",
+    "chokidar": "3.4.0",
+    "concurrently": "5.2.0",
+    "postcss": "7.0.32",
+    "prettier": "2.0.5",
+    "pug": "3.0.0",
+    "sass": "1.26.8",
+    "shelljs": "0.8.4",
+    "upath": "1.2.0"
+  },
+  "main": "index.js"
+}

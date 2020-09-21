@@ -1,0 +1,42 @@
+<%- include('header') %>
+
+<main>
+    <div class="card-body mt-4" style="width: 80%; margin-left: 20%;">
+        <h1 class="text-info">All news posts</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Content</th>
+                        <th>Create date</th>
+                        <th>Action</th>
+                        <th>image</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% articles.map((article) => { %>
+                    <tr>
+                        <td><%= article.title %></td>
+                        <td><%= article.content %></td>
+                        <td><%= article.createdAt %></td>
+                        <td class="d-flex justify-content-around">
+                            <a href="/edit/<%= article.id %>" class="btn btn-success">Edit</a>
+
+                            <form action="/articles/<%= article.id %>?_method=DELETE" method="POST">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                        <td>
+                            <img src="/admin/news/image/<%= file.filename %>" width="150" alt="" class="img-responsive">
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+<%- include('footer') %>
