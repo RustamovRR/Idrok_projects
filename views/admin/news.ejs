@@ -6,13 +6,13 @@
         <a href="/admin/news/All" class="btn btn-primary ">Show all news posts</a>
     </div>
 
-    <form method="POST" action="/admin/news/All">
+    <form method="POST" action="/admin/news/All" enctype="multipart/form-data">
 
-        <button class="btn btn-success mt-5 mb-2" data-toggle="modal" data-target="#myModal">
+        <!-- <button class="btn btn-success mt-5 mb-2" data-toggle="modal" data-target="#myModal">
             Upload image
-        </button><br>
+        </button><br> -->
 
-        <!-- <input type="file" name="file" id="file1" onchange="readSingleFile(this.files)"> -->
+        <input type="file" name="file">
 
         <div for="title" class="form-group">
             <label>Title</label>
@@ -52,7 +52,7 @@
                 <div class="modal-body">
                     <div class="file-field input-field">
                         <div class="btn grey">
-                            <input type="file" name="file" id="file1" onchange="readSingleFile(this.files)">
+                            <input type="file" name="file" id="file">
                         </div>
                     </div>
                 </div>

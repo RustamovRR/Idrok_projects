@@ -1,12 +1,10 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const crypto = require("crypto");
-const path = require("path");
-const multer = require("multer");
-const GridFsStorage = require("multer-gridfs-storage");
+const fs = require('fs')
+const path = require('path')
+const formidable = require('formidable')
 const router = express.Router()
 const Article = require('../models/Schema')
-const Image = require('../models/Schema')
 
 
 router.get('/', async (req, res) => {
@@ -25,6 +23,7 @@ router.post('/All', async (req, res, next) => {
     let article = new Article({
         title: req.body.title,
         content: req.body.content,
+        photo: req.files.file,
         date: req.body.date,
         createdAt: req.body.createdAt
     })
@@ -38,192 +37,66 @@ router.get('/edit/:id', async (req, res) => {
     res.render('admin/edit', { article: article })
 })
 
+//@desc  Upload photos for news
+//@route  PUT /api/news/:id/photo
+//@access  private/admin
 
-// router.delete('/:id', async (req, res) => {
-//     await Article.findByIdAndDelete(req.params.id)
-//     // res.redirect('/admin/news/All')
+// router.post('/:id/photo', async (req, res, next) => {
+//     const news = await News.findById(req.params.id);
+//     if (!news) return next(new errorResponse(`News not found  with  id of ${req.params.id}`, 404));
+
+//     if (!req.files) {
+//         return next(new errorResponse(`Please upload a file`, 400));
+//     }
+
+//     const file = req.files.file;
+
+//     // Make sure the image is a photo
+//     if (!file.mimetype.startsWith('image')) {
+//         return next(new errorResponse(`Please upload an image file`, 400));
+//     }
+
+//     // Check file size
+//     if (file.size > process.env.MAX_FILE_UPLOAD) {
+//         return next(new errorResponse(`Please upload an image less than 
+//         ${process.env.MAX_FILE_UPLOAD}`, 400));
+//     }
+
+//     // Create custom file name
+//     file.name = `photo_${news._id}${path.parse(file.name).ext}`;
+//     file.mv(`${process.env.FILE_UPLOAD_PATH}/${file.name}`, async err => {
+//         if (err) {
+//             console.error(err);
+//             return next(new errorResponse(`Please upload an image less than `, 500));
+//         }
+//     });
+
+//     const newss = await News.findByIdAndUpdate(req.params.id, { photo: file.name }, {
+//         new: true,
+//         runValidators: true
+//     });
+//     res.status(200).json({
+//         success: true,
+//         data: file.name
+//     })
 // })
 
 
+router.post('/upload', (req, res, next) => {
 
+    const form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields, files) {
 
-// router.put('/:id', async (req, res, next) => {
-//     req.article = await Article.findById(req.params.id)
-//     next()
-// }, saveArticleAndRedirect('edit'))
+        var oldPath = files.file.path;
+        var newPath = path.join(__dirname, '../public/uploads')
+            + '/' + files.file.name
+        var rawData = fs.readFileSync(oldPath)
 
-// function saveArticleAndRedirect(path) {
-//     return async (req, res) => {
-//         let article = req.article
-//         article.title = req.body.title
-//         article.description = req.body.description
-//         article.markdown = req.body.markdown
-//         try {
-//             article = await article.save()
-//             res.redirect(`/articles/${article.slug}`)
-//         } catch (e) {
-//             res.render(`articles/${path}`, { article: article })
-//         }
-//     }
-// }
-
-
-const mongoURI = "mongodb+srv://Idrok:riskiddin98@cluster0.thx7q.mongodb.net/article"
-
-// connection
-const conn = mongoose.createConnection(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}, console.log('2-mongodb'))
-
-
-// init gfs
-let gfs
-conn.once("open", () => {
-    // init stream
-    gfs = new mongoose.mongo.GridFSBucket(conn.db, {
-        bucketName: "uploads"
-    })
-})
-
-// Storage
-const storage = new GridFsStorage({
-    url: mongoURI,
-    file: (req, file) => {
-        return new Promise((resolve, reject) => {
-            crypto.randomBytes(16, (err, buf) => {
-                if (err) {
-                    return reject(err)
-                }
-                const filename = buf.toString("hex") + path.extname(file.originalname)
-                const fileInfo = {
-                    filename: filename,
-                    bucketName: "uploads"
-                }
-                resolve(fileInfo)
-            })
+        fs.writeFile(newPath, rawData, function (err) {
+            if (err) console.log(err)
+            return res.send(oldPath)
         })
-    }
-})
-//const storage = new GridFsStorage({ url: mongoURI }) // soddaroq usuli
-
-const upload = multer({
-    storage
-})
-
-// route'lar
-router.get("/images", async (req, res) => {
-
-
-    gfs.find().toArray(async (err, files) => {
-        const f = files
-            .map(file => {
-                if (
-                    file.contentType === "image/png" ||
-                    file.contentType === "image/jpeg"
-                ) {
-                    file.isImage = true
-                } else {
-                    file.isImage = false
-                }
-                return file
-
-            })
-            .sort((a, b) => {
-                return (
-                    new Date(b["uploadDate"]).getTime() -
-                    new Date(a["uploadDate"]).getTime()
-                )
-            })
-        res.render('admin/index', { files: f })
-    })
-})
-
-router.post('/', (req, res) => {
-    upload(req, res, (err) => {
-        if (err) {
-            return res.end('error request file');
-        }
-
-        var data = new Image({
-            name: req.body.name,
-            image: req.body.file
-        });
-        data.save().then((result) => {
-            //res.send(result);
-            //res.redirect('/')
-            console.log('saved')
-        });
-        console.log(req.file);
-        //res.end('upload file success');
-        //res.redirect('/')
-        res.redirect('/')
-        console.log('success');
-    })
-})
-
-// const upload = multer({ storage }).single('file');
-router.post("/upload", upload.single('file'), async (req, res) => {
-
-    // upload(req, res => {
-    //     let image = new Image({
-    //         uploadDate: req.body.uploadDate
-    //     })
-    // })
-    // await image.save()
-    // res.send(image)
-    res.redirect("/admin/news/images")
-
-})
-
-router.get("/files", (req, res) => {
-    gfs.find().toArray((err, files) => {
-        // fayl mavjudligini tekshiramiz
-        if (!files || files.length === 0) {
-            return res.status(404).json({
-                err: "bironta ham fayl mavjud emas"
-            })
-        }
-
-        return res.json(files)
-    })
-})
-
-router.get("/files/:filename", (req, res) => {
-    gfs.find(
-        {
-            filename: req.params.filename
-        },
-        (err, file) => {
-            if (!file) {
-                return res.status(404).json({
-                    err: "bunday fayl mavjud emas"
-                })
-            }
-
-            return res.json(file)
-        }
-    )
-})
-
-router.get("/image/:filename", (req, res) => {
-    const file = gfs
-        .find({
-            filename: req.params.filename
-        })
-        .toArray((err, files) => {
-            gfs.openDownloadStreamByName(req.params.filename).pipe(res)
-        })
-})
-
-// files/del/:id
-// faylni database'dan o'chiramiz
-router.post("/files/del/:id", (req, res) => {
-    gfs.delete(new mongoose.Types.ObjectId(req.params.id), (err, data) => {
-        if (err)
-            return res.status(404).json({ err: err.message })
-
-        res.redirect("/admin/news/images")
+        res.render('admin/index', { files: files })
     })
 })
 

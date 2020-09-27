@@ -186,10 +186,10 @@ header {
 }
 
 .header_box {
-    display: grid;
-    grid-template-columns: 50% 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 30px 50px;
-    height: 40px;
 }
 
 header h1 {
@@ -201,8 +201,8 @@ header h1 {
 }
 
 .logo {
-    width: 4vw;
-    height: 3vw;
+    width: 54.3px;
+    height: 40px;
 }
 
 .logo:hover {
@@ -210,8 +210,6 @@ header h1 {
 }
 
 .menu_btn {
-    justify-self: end;
-    align-self: end;
     height: 22.8px;
     display: flex;
     flex-direction: column;

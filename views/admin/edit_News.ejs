@@ -1,7 +1,7 @@
 <%- include('header') %>
 
 <div class="container" style="width: 70%; margin-top:10%; margin-left:20%;">
-    <form method="POST" action="/articles/<%= article.id %>?_method=PUT">
+    <form action="/admin/news/edit/<%= article.id %>" method="POST">
 
         <!-- Button trigger modal -->
         <button class="btn btn-primary" data-toggle="modal" data-target="#myModal" type="button">
@@ -10,7 +10,7 @@
 
         <div for="title" class="form-group">
             <label>Title</label>
-            <input id="title" name="title" class="form-control" value="<%= article.title %>"  placeholder=" title">
+            <input id="title" name="title" class="form-control" value="<%= article.title %>" placeholder=" title">
         </div>
 
         <div for="title" class="form-group">
@@ -22,7 +22,7 @@
 
         <div for="date" class="form-group">
             <label>Sanani kiriting (for example:15-aug 2020)</label>
-            <textarea id="date" name="date" class="form-control" placeholder="date"><%=  %></textarea>
+            <textarea id="date" name="date" class="form-control" placeholder="date"><%= article.date %></textarea>
         </div>
 
         <input type="submit" class="btn btn-success" value="Edit">

@@ -3,15 +3,21 @@ const mongoose = require('mongoose')
 const articleSchema = new mongoose.Schema({
     title: {
         type: String,
-        required: true
     },
-    description: {
+    content: {
+        type: String,
+    },
+    photo: {
+        type: String,
+        default: 'no-photo.jpg'
+    },
+    date: {
         type: String
     },
     createdAt: {
         type: Date,
         default: Date.now
-    }
+    },
 })
 
 

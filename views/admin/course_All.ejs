@@ -2,13 +2,15 @@
 
 <main>
     <div class="card-body mt-4" style="width: 80%; margin-left: 20%;">
-        <h1 class="text-info">All news posts</h1>
+        <h1 class="text-info">All courses posts</h1>
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Content</th>
+                        <th>Name</th>
+                        <th>Title 1</th>
+                        <th>Title 2</th>
+                        <th>Price</th>
                         <th>Create date</th>
                         <th>Action</th>
                         <th>image</th>
@@ -16,19 +18,20 @@
                 </thead>
 
                 <tbody>
-                    <% articles.map((article) => { %>
+                    <% courses.map((course) => { %>
                     <tr>
-                        <td><%= article.title %></td>
-                        <td><%= article.content %></td>
-                        <td><%= article.createdAt %></td>
+                        <td><%= course.name %></td>
+                        <td><%= course.title_1 %></td>
+                        <td><%= course.title_2 %></td>
+                        <td><%= course.price %></td>
+                        <td><%= course.createdAt %></td>
                         <td class="d-flex justify-content-around">
-                            <a href="/admin/news/edit/<%= article.id %>" class="btn btn-success">Edit</a>
+                            <a href="/admin/course/edit/<%= course.id %>" class="btn btn-success">Edit</a>
 
-                            <form action="/admin/news/All/<%= article.id %>" method="POST">
+                            <form action="/admin/course/All/<%= course.id %>" method="POST">
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </td>
-                        <td><img src="/images/02MLF2017_Randwick-00012.png" alt="" width="50" height="50"></td>
                     </tr>
                     <% }) %>
                 </tbody>
