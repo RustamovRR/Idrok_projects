@@ -1,56 +1,58 @@
 const express = require('express')
-const path = require('path')
 const Course = require('../models/Course')
-const fileUpload = require('express-fileupload')
-const router = express.Router({ mergeParams: true })
+const router = express.Router({ mergeParams: true });
+const {
+    getAllCourse,
+    getSingleCourse,
+    createCourse,
+    updateCourse,
+    deleteCourse
+} = require('../controllers/course');
+const { protect, authorize } = require('../middlewares/auth')
 
 
-router.post('/All', async (req, res, next) => {
+router
+    .route('/')
 
-  let course = await Course.create(req.body)
+router
+    .route('/all')
+    .get(getAllCourse)
+    .post(createCourse);
 
-  await course.save()
-  res.redirect('/admin/course/All')
+router
+    .route('/:id')
+    .post(deleteCourse)
 
-})
 
 router.get('/', async (req, res) => {
-  let course = await Course.find()
-  res.render('admin/course')
+    let courses = await Course.find().sort({ createdAt: 'desc' })
+    res.render('admin/course', { courses: courses })
 })
 
-router.get('/All', async (req, res) => {
-  let courses = await Course.find().sort({ createdAt: 'desc' })
-  res.render('admin/course_All', { courses: courses })
+router.get('/all', async (req, res) => {
+    let courses = await Course.find().sort({ createdAt: 'desc' })
+    res.render('admin/course_All', { courses: courses })
 })
 
-
-// By id////////////////////////////////////////////////////////////////////////////////////////////
-router.get('/:id', async (req, res) => {
-  let course = await Course.findById(req.params.id)
-  if (!course)
-    return next(res.send(`Course not found with  id of ${req.params.id}`, 404))
-})
-
-// update
 router.get('/edit/:id', async (req, res) => {
-  let course = await Course.findById(req.params.id)
-  res.render('admin/edit_Course', { course: course })
+    const course = await Course.findById(req.params.id, req.body, {
+        new: true,
+        runValidators: true
+    })
+    res.render('admin/edit_Course', { course: course })
+    if (!course) return next(new errorResponse(`Not found user with  id of ${req.params.id}`, 404))
+
 })
 
 router.post('/edit/:id', async (req, res) => {
-  let course = await Course.findByIdAndUpdate(req.params.id, req.body)
+    const course = await Course.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+        runValidators: true
+    })
 
-  await course.save()
-  res.redirect('/admin/course/All')
+    await course.save()
+    res.redirect('/api/course/all')
+
 })
 
-// delete
-router.post('/All/:id', async (req, res) => {
-  let course = await Course.findByIdAndDelete(req.params.id)
-  res.redirect('/admin/course/All')
-})
-
-
-
-module.exports = router
+module.exports = router;

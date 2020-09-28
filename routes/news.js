@@ -1,83 +1,68 @@
-const express = require('express')
-const path = require('path')
-const formidable = require('formidable')
+const express = require('express');
+const fileUpload = require('express-fileupload');
 const News = require('../models/News')
-const fileUpload = require('express-fileupload')
-const { url } = require('inspector')
-const router = express.Router({ mergeParams: true })
+const router = express.Router({ mergeParams: true });
+const {
+  getAllNews,
+  getSingleNews,
+  createNews,
+  updateNews,
+  deleteNews
+} = require('../controllers/news');
+const auth = require('../middlewares/auths')
+const admin = require('../middlewares/admin')
+const { protect, authorize } = require('../middlewares/auth')
+// router.use(protect);
+// router.use(authorize('admin'));
 
+router
+  .route('/')
 
-router.post('/All', async (req, res, next) => {
-  
-  let news = await News.create(req.body)
+router
+  .route('/all')
+  .get(getAllNews)
+  .post(createNews);
 
-  const file = req.files.file;
-
-  // Create custom file name
-  file.name = `photo_${news._id}${path.parse(file.name).ext}`;
-  file.mv(`../public/uploads/ + ${file.name}`, async err => {
-    if (err) {
-      console.error(err);
-    } else {
-      console.log('upload')
-    }
-  });
-  const { title, newsBody } = req.body;
-  const photo = file.name;
-  news = await News.findByIdAndUpdate(news._id, {
-    photo
-  }, {
-    new: true,
-    runValidators: true
-  });
-
-  await news.save()
-  res.redirect('/admin/news/All')
-
-})
+router
+  .route('/:id')
+  .post(deleteNews)
 
 
 router.get('/', async (req, res) => {
-  let news = await News.find()
-  res.render('admin/news')
+
+  // res.redirect('/api/auth')
+
+  let articles = await News.find().sort({ createdAt: 'desc' })
+  res.render('admin/news', { articles: articles })
 })
 
-router.get('/All', async (req, res) => {
+router.get('/all', async (req, res) => {
   let articles = await News.find().sort({ createdAt: 'desc' })
   res.render('admin/news_All', { articles: articles })
 })
 
-
-
-
-
-
-// By id////////////////////////////////////////////////////////////////////////////////////////////
-router.get('/:id', async (req, res) => {
-  let news = await News.findById(req.params.id)
-  if (!news)
-    return next(res.send(`News not found with  id of ${req.params.id}`, 404))
-})
-
-// update
 router.get('/edit/:id', async (req, res) => {
-  let article = await News.findById(req.params.id)
+  const article = await News.findById(req.params.id, req.body, {
+    new: true,
+    runValidators: true
+  })
+
   res.render('admin/edit_News', { article: article })
+  if (!article) return next(new errorResponse(`Not found user with  id of ${req.params.id}`, 404))
+
 })
 
 router.post('/edit/:id', async (req, res) => {
-  let news = await News.findByIdAndUpdate(req.params.id, req.body)
+  const article = await News.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true
+  })
 
-  await news.save()
-  res.redirect('/admin/news/All')
+  await article.save()
+  res.redirect('/api/news/all')
+
 })
 
-// delete
-router.post('/All/:id', async (req, res) => {
-  let news = await News.findByIdAndDelete(req.params.id)
-  res.redirect('/admin/news/All')
-})
 
 
-
-module.exports = router
+module.exports = router;

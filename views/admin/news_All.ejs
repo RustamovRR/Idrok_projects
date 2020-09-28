@@ -19,16 +19,17 @@
                     <% articles.map((article) => { %>
                     <tr>
                         <td><%= article.title %></td>
-                        <td><%= article.content %></td>
+                        <td><%= article.content_1 %></td>
                         <td><%= article.createdAt %></td>
                         <td class="d-flex justify-content-around">
-                            <a href="/admin/news/edit/<%= article.id %>" class="btn btn-success">Edit</a>
+                            <a href="/api/news/edit/<%= article.id %>" class="btn btn-success">Edit</a>
 
-                            <form action="/admin/news/All/<%= article.id %>" method="POST">
+                            <form action="/api/news/<%= article.id %>" method="POST">
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </td>
-                        <td><img src="/images/02MLF2017_Randwick-00012.png" alt="" width="50" height="50"></td>
+                        <td><img src="/uploadImage/newsImage/<%= article.photo %>" alt="<%= article.photo %>" width="50"
+                                height="50" style="object-fit: contain;"></td>
                     </tr>
                     <% }) %>
                 </tbody>

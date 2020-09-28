@@ -28,21 +28,27 @@
     "type": "git"
   },
   "dependencies": {
-    "busboy": "^0.3.1",
+    "bcrypt": "^5.0.0",
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.2",
     "crypto": "^1.0.1",
-    "dompurify": "^2.0.15",
+    "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
+    "express-handlebars": "^5.1.0",
     "express-session": "^1.17.1",
     "formidable": "^1.2.2",
     "gridfs-stream": "^1.1.1",
-    "marked": "^1.1.1",
-    "method-override": "^3.0.0",
+    "handlebars": "^4.7.6",
+    "helmet": "^4.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.20",
     "mongodb": "^3.6.1",
     "mongoose": "^5.9.4",
     "multer": "^1.4.2",
     "multer-gridfs-storage": "^4.2.0",
-    "slugify": "^1.4.5"
+    "nodemailer": "^6.4.11"
   },
   "devDependencies": {
     "autoprefixer": "9.8.0",

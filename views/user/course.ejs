@@ -55,9 +55,8 @@
 
         <div class="container_wrapper">
             <section class="content">
-                <% courses.map((post) => { %>
                 <div id="design" class="image_box ">
-                    <a href="/course/<%= post.id %> "><img src="/images/component.png" alt=""></a>
+                    <a href="/course_link"><img src="/images/component.png" alt="" onclick="fullScreen()"></a>
                 </div>
 
                 <div id="developer" class="image_box ">
@@ -79,7 +78,6 @@
                 <div id="wireless" class="image_box ">
                     <a href="/course_link"><img src="/images/component (1).png" alt=""></a>
                 </div>
-                <% }) %>
             </section>
         </div>
     </div>

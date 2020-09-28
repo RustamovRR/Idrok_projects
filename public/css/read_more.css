@@ -33,7 +33,6 @@ body {
 
 .top_transform {
     top: 0;
-    position: fixed;
 }
 
 .top_left {
@@ -182,9 +181,8 @@ li {
 
 /* header /////////////////////////////////////////////////////////////////////*/
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 50% 50%;
     padding: 30px 50px;
 }
 
@@ -198,6 +196,8 @@ header {
 }
 
 .menu_btn {
+    justify-self: end;
+    align-self: end;
     height: 22.8px;
     display: flex;
     flex-direction: column;

@@ -3,10 +3,10 @@
 <div class="container" style="width: 80%; margin-top:10%; margin-left: 20%;">
     <div class="d-flex justify-content-between align-items-center">
         <h1 class="text-success">Create news post</h1>
-        <a href="/admin/news/All" class="btn btn-primary ">Show all news posts</a>
+        <a href="/api/news/all" class="btn btn-primary ">Show all news posts</a>
     </div>
 
-    <form method="POST" action="/admin/news/All" enctype="multipart/form-data">
+    <form method="POST" action="/api/news/all" enctype="multipart/form-data">
 
         <!-- <button class="btn btn-success mt-5 mb-2" data-toggle="modal" data-target="#myModal">
             Upload image
@@ -19,9 +19,19 @@
             <input id="title" name="title" class="form-control" placeholder="title" required>
         </div>
 
-        <div for="title" class="form-group">
-            <label>Content</label>
-            <textarea name="content" id="content" class="form-control"></textarea>
+        <div for="content_1" class="form-group">
+            <label>Content_1</label>
+            <textarea name="content_1" id="content_1" class="form-control" rows="5"></textarea>
+        </div>
+
+        <div for="content_2" class="form-group">
+            <label>Content_2</label>
+            <textarea name="content_2" id="content_2" class="form-control" rows="5"></textarea>
+        </div>
+
+        <div for="content_3" class="form-group">
+            <label>Content_3</label>
+            <textarea name="content_3" id="content_3" class="form-control" rows="5"></textarea>
         </div>
 
         <div for="date" class="form-group">
@@ -34,44 +44,6 @@
         <input type="submit" class="btn btn-success" value="Post">
     </form>
 </div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    &times;
-                </button>
-            </div>
-
-            <form action="/admin/news/upload" method="POST" enctype="multipart/form-data" id="upload">
-                <div class="modal-body">
-                    <div class="file-field input-field">
-                        <div class="btn grey">
-                            <input type="file" name="file" id="file">
-                        </div>
-                    </div>
-                </div>
-                <br>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                        Close
-                    </button>
-
-                    <input type="submit" class="btn btn-success" value="Rasmni saqlash" />
-                </div>
-            </form>
-
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-
-</div><!-- /.modal -->
-
 
 
 

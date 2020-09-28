@@ -26,12 +26,14 @@
                         <td><%= course.price %></td>
                         <td><%= course.createdAt %></td>
                         <td class="d-flex justify-content-around">
-                            <a href="/admin/course/edit/<%= course.id %>" class="btn btn-success">Edit</a>
+                            <a href="/api/course/edit/<%= course.id %>" class="btn btn-success">Edit</a>
 
-                            <form action="/admin/course/All/<%= course.id %>" method="POST">
+                            <form action="/api/course/<%= course.id %>" method="POST">
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </td>
+                        <td><img src="/uploadImage/courseImage/<%= course.photo %>" alt="<%= course.photo %>" width="50"
+                                height="50" style="object-fit: contain;"></td>
                     </tr>
                     <% }) %>
                 </tbody>
