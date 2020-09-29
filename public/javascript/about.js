@@ -1,4 +1,9 @@
 
+window.addEventListener('load', () => {
+    let loader = document.getElementsByClassName('load_wrapper')[0]
+    loader.style.display = ''
+})
+
 AOS.init({
     once: true
 });

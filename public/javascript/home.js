@@ -1,10 +1,14 @@
 
+window.addEventListener('load', () => {
+    let loader = document.getElementsByClassName('load_wrapper')[0]
+    loader.style.display = 'none'
+})
+
 const btn = document.getElementById('btn_menu')
 const top_menu = document.querySelector('.top_container');
 btn.addEventListener('click', () => {
     top_menu.classList.toggle('top_transform')
 })
-
 
 function topFunction() {
     document.body.scrollTop = 0;
@@ -13,7 +17,7 @@ function topFunction() {
 
 function myFunction() {
     alert("Page is loaded");
-  }
+}
 
 
 // Hamburger menu//////////////////////////////////////////////////////////////////////////////////////////////////////

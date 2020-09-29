@@ -75,7 +75,7 @@ body {
     line-height: 1.5;
 }
 
-.phone_top_body a{
+.phone_top_body a {
     text-decoration: none;
     color: unset;
 }
@@ -103,7 +103,7 @@ li {
 .image {
     width: 60%;
     height: 100vh;
-    background: url('/images/top\ menu\ background.png');
+    background: url('../images/menu_top.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right;
@@ -190,7 +190,6 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 30px 50px;
-    position: sticky;
 }
 
 header h1 {
@@ -514,6 +513,11 @@ li {
     width: 19vw;
     height: 25vw;
     object-fit: cover;
+    transition: .5s ease;
+}
+
+.team_image :hover {
+    transform: scale(1.1);
 }
 
 .image_text {
@@ -588,6 +592,11 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.location_map a{
+    text-decoration: none;
+    color: unset;
 }
 
 .location_map img {
@@ -727,7 +736,7 @@ footer {
 }
 
 .email_input_box button:hover {
-    animation: 1s form_button_anim 
+    animation: 1s form_button_anim
 }
 
 .email_input_box img {
@@ -960,6 +969,12 @@ footer {
 
     .who_are_we {
         height: 100vw;
+    }
+
+    .logo {
+        width: 30px;
+        height: 20px;
+        z-index: 10;
     }
 
     .gallery_nav,
