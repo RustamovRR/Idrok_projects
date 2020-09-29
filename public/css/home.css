@@ -1,7 +1,7 @@
 
- .load_wrapper {
+ .spin_wrapper {
     width: 100vw;
-    height: 100vh;
+    height: 110vh;
     position: fixed;
     overflow: hidden;
     display: flex;
@@ -9,7 +9,7 @@
     justify-content: center;
     align-items: center;
     background-color: #fff;
-    z-index: 2342342342;
+    z-index: 100000;
 }
 
 .spinner {
@@ -19,12 +19,12 @@
     border-top: 3px solid #086420;
     border-radius: 100%;
     position: absolute;
-    margin: auto;
     animation: spin 1s infinite linear;
 }
 
 .spin_wrapper h2{
     margin-top: 200px;
+    text-align: center;
 }
 
 @keyframes spin {

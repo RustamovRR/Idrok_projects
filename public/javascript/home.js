@@ -1,7 +1,7 @@
 
 window.addEventListener('load', () => {
     let loader = document.getElementsByClassName('load_wrapper')[0]
-    loader.style.display = 'none'
+    loader.style.display = ''
 })
 
 const btn = document.getElementById('btn_menu')
