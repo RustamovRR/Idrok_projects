@@ -7,9 +7,17 @@ const {
   updatePassword,
   forgotPassword,
   resetPassword
-} = require('../IDROK/controllers/auth');
+} = require('../controllers/auth');
 const router = express.Router();
-const { protect } = require('../IDROK/middlewares/auth');
+const { protect } = require('../middlewares/auth');
+
+router.get('/register', (req,res)=>{
+  res.render('admin/register')
+})
+
+router.get('/login', (req,res)=>{
+  res.render('admin/login')
+})
 
 router.post('/register', register);
 router.post('/login', login);

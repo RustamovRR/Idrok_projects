@@ -1,5 +1,5 @@
 const nodemailer = require("nodemailer");
-const { options } = require("../IDROK/routes/user");
+const { options } = require("../routes/user");
 
 const sendEmail = async options => {
 

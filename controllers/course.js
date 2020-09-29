@@ -96,7 +96,7 @@ exports.createCourse = asyncHandler(async (req, res, next) => {
         runValidators: true
     })
 
-    res.redirect('/api/course/all')
+    res.redirect('/api/5f73231390cf343bec38e4f1/course/all')
     // res.status(200).json({
     //     success: true,
     //     data: course
@@ -132,5 +132,5 @@ exports.deleteCourse = asyncHandler(async (req, res, next) => {
     //     success: true,
     //     data: course
     // })
-    res.redirect('/api/course/all')
+    res.redirect('/api/5f73231390cf343bec38e4f1/course/all')
 })

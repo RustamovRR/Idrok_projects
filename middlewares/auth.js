@@ -8,11 +8,10 @@ exports.protect = asyncHandler(async (req, res, next) => {
   let token;
 
   if (
-    req.headers.authorization &&
-    req.headers.authorization.startsWith('Bearer')
+    req.headers.authorization
   ) {
     // Set token from Bearer token in header
-    token = req.headers.authorization.split(' ')[1];
+    token = req.body.authorization
     // Set token from cookie
   }
   // else if (req.cookies.token) {
@@ -26,7 +25,7 @@ exports.protect = asyncHandler(async (req, res, next) => {
 
   try {
     // Verify token
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, 'idrok2020');
 
     req.user = await User.findById(decoded.id);
 

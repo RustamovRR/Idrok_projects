@@ -8,7 +8,7 @@ const {
   updateCourse,
   deleteCourse
 } = require('../controllers/course');
-
+const { protect, authorize } = require('../middlewares/auth')
 
 router
   .route('/')
@@ -50,7 +50,7 @@ router.post('/edit/:id', async (req, res) => {
   })
 
   await course.save()
-  res.redirect('/api/course/all')
+  res.redirect('/api/5f73231390cf343bec38e4f1/course/all')
 
 })
 

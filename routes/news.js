@@ -9,6 +9,7 @@ const {
   updateNews,
   deleteNews
 } = require('../controllers/news');
+const { protect, authorize } = require('../middlewares/auth');
 // router.use(protect);
 // router.use(authorize('admin'));
 
@@ -26,8 +27,6 @@ router
 
 
 router.get('/', async (req, res) => {
-
-  // res.redirect('/api/auth')
 
   let articles = await News.find().sort({ createdAt: 'desc' })
   res.render('admin/news', { articles: articles })
@@ -56,7 +55,7 @@ router.post('/edit/:id', async (req, res) => {
   })
 
   await article.save()
-  res.redirect('/api/news/all')
+  res.redirect('/api/5f73231390cf343bec38e4f1/news/all')
 
 })
 

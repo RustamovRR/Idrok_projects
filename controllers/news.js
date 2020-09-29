@@ -71,7 +71,7 @@ exports.createNews = asyncHandler(async (req, res, next) => {
         runValidators: true
     })
 
-    res.redirect('/api/news/all')
+    res.redirect('/api/5f73231390cf343bec38e4f1/news/all')
     // res.status(200).json({
     //     success: true,
     //     data: news
@@ -106,5 +106,5 @@ exports.deleteNews = asyncHandler(async (req, res, next) => {
     //     success: true,
     //     data: news
     // })
-    res.redirect('/api/news/all')
+    res.redirect('/api/5f73231390cf343bec38e4f1/news/all')
 })
