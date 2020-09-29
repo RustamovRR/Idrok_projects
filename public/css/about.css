@@ -190,6 +190,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 30px 50px;
+    position: sticky;
 }
 
 header h1 {
@@ -835,41 +836,6 @@ footer {
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 @media screen and (max-width:900px) {
-    .menu_btn {
-        height: 12px;
-    }
-
-    .burger1 {
-        width: 7px;
-        height: 2px;
-        margin-left: 4px;
-    }
-
-    .burger2 {
-        width: 13px;
-        height: 2px;
-    }
-
-    .burger3 {
-        width: 7px;
-        height: 2px;
-        margin-left: 1px;
-    }
-
-    .open .burger2 {
-        transform: translateX(-10px);
-        background: transparent;
-    }
-
-    .open .burger1 {
-        transform: rotate(45deg) translateY(2px) translateX(3px);
-        width: 10px;
-    }
-
-    .open .burger3 {
-        transform: rotate(-45deg) translateY(-2px) translateX(7px);
-        width: 10px;
-    }
 
     .gallery_nav a,
     .team_nav a {
@@ -994,12 +960,6 @@ footer {
 
     .who_are_we {
         height: 100vw;
-    }
-
-    .logo {
-        width: 30px;
-        height: 20px;
-        z-index: 10;
     }
 
     .gallery_nav,

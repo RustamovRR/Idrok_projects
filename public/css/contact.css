@@ -488,51 +488,8 @@ footer {
         width: 100vw;
     }
 
-
-    .logo {
-        width: 35px;
-        height: 25px;
-        z-index: 100;
-    }
-
     header h1 {
         font-size: 15vw;
-    }
-
-    .menu_btn {
-        height: 12px;
-    }
-
-    .burger1 {
-        width: 7px;
-        height: 2px;
-        margin-left: 4px;
-    }
-
-    .burger2 {
-        width: 13px;
-        height: 2px;
-    }
-
-    .burger3 {
-        width: 7px;
-        height: 2px;
-        margin-left: 1px;
-    }
-
-    .open .burger2 {
-        transform: translateX(-10px);
-        background: transparent;
-    }
-
-    .open .burger1 {
-        transform: rotate(45deg) translateY(2px) translateX(3px);
-        width: 10px;
-    }
-
-    .open .burger3 {
-        transform: rotate(-45deg) translateY(-2px) translateX(7px);
-        width: 10px;
     }
 
     .container_right {

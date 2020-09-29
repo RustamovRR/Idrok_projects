@@ -60,7 +60,7 @@
                     <a href="/course/<%= post.id %> "><img src="/uploadImage/courseImage/<%= post.photo %>"
                             alt="idroktalim.uz"></a>
                 </div>
-        </div> -->
+        </div>
         <% }) %>
         </section>
     </div>
@@ -75,7 +75,8 @@
     <section class="mob_content">
         <% courses.map((post) => { %>
         <div id="mDesign" class="mob_image_box ">
-            <a href="/course_link"><img src="/images/component.png" alt=""></a>
+            <a href="/course/<%= post.id %> "><img src="/uploadImage/courseImage/<%= post.photo %>"
+                    alt="idroktalim.uz"></a>
         </div>
         <% }) %>
     </section>

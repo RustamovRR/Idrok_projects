@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <a href="/"><img class="logo" src="/SVG/logo.svg" alt="Logo idrok_talim"></a>
+        <a href="/"><img class="logo" src="/SVG/logo.svg" alt="idroktalim.uz Logo idrok_talim"></a>
         <div class="menu_btn" id="btn_menu">
             <div class="burger1"></div>
             <div class="burger2"></div>
@@ -60,7 +60,7 @@
                 <div id="l" class="double_box All ">
                     <div class="image_box ">
 
-                        <img src="/uploadImage/newsImage/<%= post.photo %>" alt="">
+                        <a href="news/<%= post.id %>"><img src="/uploadImage/newsImage/<%= post.photo %>" alt="idroktalim.uz "></a>
 
                         <div class="image_text_box">
                             <h4 class="image_text_box_header"><%= post.title %></h4>
@@ -77,7 +77,7 @@
     </div>
 
     <footer class="scroll">
-        <img src="../SVG/scroll icon.svg" alt="">
+        <img src="../SVG/scroll icon.svg" alt="idroktalim.uz ">
     </footer>
 
 
@@ -88,7 +88,7 @@
         <% articles.map((post) => { %>
         <div id="mAll" class="double_box ">
             <div class=" image_box ">
-                <img src="../images/DVnRH2_U8AEC35l.png" alt="">
+                <a href="news/<%= post.id %>"><img src="/uploadImage/newsImage/<%= post.photo %>" alt="idroktalim.uz "></a>
                 <div class="image_text_box">
                     <h4 class="image_text_box_header"><%= post.title %></h4>
                     <p><%= post.date %></p>
@@ -101,7 +101,7 @@
     </section>
 
     <div class="to_top" id="btn" onclick="topFunction()">
-        <img src="../SVG/arrow-up-s-line.svg" alt="">
+        <img src="../SVG/arrow-up-s-line.svg" alt="idroktalim.uz ">
     </div>
 
 </body>
