@@ -55,31 +55,15 @@
 
         <div class="container_wrapper">
             <section class="content">
+                <% courses.map((post) => { %>
                 <div id="design" class="image_box ">
-                    <a href="/course_link"><img src="/images/component.png" alt="" onclick="fullScreen()"></a>
+                    <a href="/course/<%= post.id %> "><img src="/uploadImage/courseImage/<%= post.photo %>"
+                            alt="idroktalim.uz"></a>
                 </div>
-
-                <div id="developer" class="image_box ">
-                    <a href="/course_link"><img src="/images/component (1).png" alt=""></a>
-                </div>
-
-                <div id="marketing" class="image_box ">
-                    <a href="/course_link"><img src="/images/component.png" alt=""></a>
-                </div>
-
-                <div id="data" class="image_box ">
-                    <a href="/course_link"><img src="/images/component (1).png" alt=""></a>
-                </div>
-
-                <div id="language" class="image_box ">
-                    <a href="/course_link"><img src="/images/component.png" alt=""></a>
-                </div>
-
-                <div id="wireless" class="image_box ">
-                    <a href="/course_link"><img src="/images/component (1).png" alt=""></a>
-                </div>
-            </section>
-        </div>
+        </div> -->
+        <% }) %>
+        </section>
+    </div>
     </div>
 
     <footer>
@@ -89,29 +73,11 @@
 
     <!-- Mobile/////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
     <section class="mob_content">
+        <% courses.map((post) => { %>
         <div id="mDesign" class="mob_image_box ">
             <a href="/course_link"><img src="/images/component.png" alt=""></a>
         </div>
-
-        <div id="mDeveloper" class="mob_image_box ">
-            <a href="/course_link"><img src="/images/component (1).png" alt=""></a>
-        </div>
-
-        <div id="mMarketing" class="mob_image_box ">
-            <a href="/course_link"><img src="/images/component.png" alt=""></a>
-        </div>
-
-        <div id="mData" class="mob_image_box ">
-            <a href="/course_link"><img src="/images/component (1).png" alt=""></a>
-        </div>
-
-        <div id="mLanguage" class="mob_image_box ">
-            <a href="/course_link"><img src="/images/component.png" alt=""></a>
-        </div>
-
-        <div id="mWireless" class="mob_image_box ">
-            <a href="/course_link"><img src="/images/component (1).png" alt=""></a>
-        </div>
+        <% }) %>
     </section>
 
     <footer class="mob_footer">

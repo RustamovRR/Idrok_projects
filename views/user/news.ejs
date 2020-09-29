@@ -60,11 +60,12 @@
                 <div id="l" class="double_box All ">
                     <div class="image_box ">
 
+                        <img src="/uploadImage/newsImage/<%= post.photo %>" alt="">
 
                         <div class="image_text_box">
                             <h4 class="image_text_box_header"><%= post.title %></h4>
                             <p><%= post.date %></p>
-                            <p><%= post.content %></p>
+                            <p><%= post.content_1 %></p>
                         </div>
                         <a href="news/<%= post.id %>" class="read_more">KO'PROQ O'QING</a>
                     </div>
@@ -89,11 +90,11 @@
             <div class=" image_box ">
                 <img src="../images/DVnRH2_U8AEC35l.png" alt="">
                 <div class="image_text_box">
-                    <h4 class="image_text_box_header"><%- post.title %></h4>
-                    <p><%- post.date %></p>
-                    <p><%- post.content %></p>
+                    <h4 class="image_text_box_header"><%= post.title %></h4>
+                    <p><%= post.date %></p>
+                    <p><%= post.content_1 %></p>
                 </div>
-                <a href="user/read_more/<%= post._id %>" class="read_more">READ MORE</a>
+                <a href="news/<%= post.id %>" class="read_more">READ MORE</a>
             </div>
             <% }) %>
 

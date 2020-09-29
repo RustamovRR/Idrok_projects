@@ -3,8 +3,6 @@
 <div class="container" style="width: 70%; margin-top:10%; margin-left:20%;">
     <form action="/api/news/edit/<%= article.id %>" method="POST">
 
-        <input type="file" name="file">
-
         <div for="title" class="form-group">
             <label>Title</label>
             <input id="title" name="title" class="form-control" value="<%= article.title %>" placeholder=" title">

@@ -27,7 +27,6 @@
                         <td><%= course.createdAt %></td>
                         <td class="d-flex justify-content-around">
                             <a href="/api/course/edit/<%= course.id %>" class="btn btn-success">Edit</a>
-
                             <form action="/api/course/<%= course.id %>" method="POST">
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>

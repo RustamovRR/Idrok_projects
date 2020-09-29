@@ -36,29 +36,29 @@
             <section class="content">
                 <div class="text_box">
                     <div class="image_box">
-                        <img src="../../images/DVnRH2_U8AEC35l@2x.png" alt="">
+                        <img src="/uploadImage/newsImage/<%= article.photo %>" alt="">
                     </div>
 
                     <div class="text text1">
                         <p>
-                            <%= article.content %>
+                            <%= article.content_1 %>
                         </p>
                     </div>
                 </div>
 
-                <!-- <div class="text_box">
+                <div class=" text_box">
                     <div class="text">
                         <p>
-
-                        </p>
-                        <p>
+                            <%= article.content_2 %>
                         </p>
                     </div>
 
                     <div class="text">
                         <p>
+                            <%= article.content_3 %>
+                        </p>
                     </div>
-                </div> -->
+                </div>
             </section>
         </div>
     </section>
@@ -72,30 +72,29 @@
     <section class="mob_content">
         <div class="mob_text_box">
             <div class="image_box">
-                <img src="../../images/DVnRH2_U8AEC35l@2x.png" alt="">
+                <img src="/uploadImage/newsImage/<%= article.photo %>" alt="">
             </div>
 
             <div class="mob_text mob_text1">
                 <p>
-                    <%= article.content %>
+                    <%= article.content_1 %>
                 </p>
             </div>
         </div>
 
-        <!-- <div class="mob_text_box">
+        <div class="mob_text_box">
             <div class="mob_text">
                 <p>
-                   
+                    <%= article.content_2 %>
                 </p>
-                <p></p>
             </div>
 
             <div class="mob_text">
                 <p>
+                    <%= article.content_3 %>
                 </p>
-                <p> </p>
             </div>
-        </div> -->
+        </div>
     </section>
 
     <footer class="mob_footer">

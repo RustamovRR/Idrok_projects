@@ -9,9 +9,6 @@ const {
   updateNews,
   deleteNews
 } = require('../controllers/news');
-const auth = require('../middlewares/auths')
-const admin = require('../middlewares/admin')
-const { protect, authorize } = require('../middlewares/auth')
 // router.use(protect);
 // router.use(authorize('admin'));
 
