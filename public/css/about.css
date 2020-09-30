@@ -21,8 +21,8 @@ body {
     display: flex;
     position: absolute;
     background-color: #fff;
-    top: -100vh;
-    transition: .8s ease-in-out;
+    top: -100%;
+    transition: .7s ease-in-out;
     z-index: 20;
 }
 
@@ -894,6 +894,7 @@ footer {
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 @media screen and (max-width:700px) {
+
     header h1 {
         width: 80vw;
         top: 60%;
@@ -953,6 +954,7 @@ footer {
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 @media screen and (max-width:480px) {
+
     header h1 {
         top: 55%;
         font-size: 15vw;
@@ -972,8 +974,6 @@ footer {
     }
 
     .logo {
-        width: 30px;
-        height: 20px;
         z-index: 10;
     }
 

@@ -1,8 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const path = require('path')
-const dotenv = require('dotenv')
-const helmet = require('helmet')
 const fileupload = require('express-fileupload')
 const app = express()
 
@@ -11,7 +9,7 @@ const NewsRouter = require('./routes/news')
 const CourseRouter = require('./routes/course')
 const authRouter = require('./routes/auth')
 
-mongoose.connect('mongodb+srv://riskiddin98:riskiddin98@cluster0.d5xmv.mongodb.net/article', {
+mongoose.connect('mongodb://localhost:27017/myproject', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true

@@ -439,7 +439,7 @@ li {
     font-size: 14px;
     white-space: wrap;
     overflow: hidden;
-    max-height: 5vw;
+    max-height: 71px
 }
 
 .read_more {
@@ -696,6 +696,10 @@ footer img {
 @media screen and (max-width: 480px) {
     body {
         background-size: contain;
+    }
+
+    header{
+        padding: 10vw 8vw;
     }
 
     .container {

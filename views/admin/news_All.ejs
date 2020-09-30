@@ -19,7 +19,7 @@
                     <% articles.map((article) => { %>
                     <tr>
                         <td><%= article.title %></td>
-                        <td><%= article.content_1 %></td>
+                        <td><%= article.content_1.split('.')[0] %></td>
                         <td><%= article.createdAt %></td>
                         <td class="d-flex justify-content-around">
                             <a href="/api/5f73231390cf343bec38e4f1/news/edit/<%= article.id %>" class="btn btn-success">Edit</a>

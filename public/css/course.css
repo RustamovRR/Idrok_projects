@@ -27,9 +27,9 @@ body {
     display: flex;
     position: absolute;
     background-color: #fff;
-    top: -100vh;
+    top: -100%;
     z-index: 20;
-    transition: .8s ease-in-out;
+    transition: .7s ease-in-out;
 }
 
 .top_transform {
@@ -722,6 +722,10 @@ footer img {
 @media screen and (max-width: 480px) {
     body {
         background-size: contain;
+    }
+
+    header{
+        padding: 10vw 8vw;
     }
 
     .container {

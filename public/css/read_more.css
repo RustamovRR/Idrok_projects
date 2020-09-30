@@ -511,11 +511,16 @@ footer img {
         background-attachment: fixed;
     }
 
+    header{
+        padding: 10vw 8vw;
+    }
+
     .container {
         grid-template-columns: 8.5% auto 8.5%;
         grid-template-areas:
             '. head_text .'
             '. content .';
+            margin-top: 0;
     }
 
     .top_left {

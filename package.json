@@ -2,7 +2,7 @@
   "title": "Idrok",
   "version": "6.0.1",
   "scripts": {
-    "start": "node index.js"
+    "start": "node app.js"
   },
   "description": "Idrok ta'lim - zamonaviy ta'lim.",
   "keywords": [
@@ -50,5 +50,5 @@
     "shelljs": "0.8.4",
     "upath": "1.2.0"
   },
-  "main": "index.js"
+  "main": "app.js"
 }

@@ -43,3 +43,5 @@ menuBtn.addEventListener('click', () => {
         menuOpen = false;
     }
 });
+
+const arrayId = ['all', 'design', 'program', 'marketing', 'info']
