@@ -251,6 +251,7 @@ header {
 
 /* container */
 .container {
+    overflow: hidden;
     display: grid;
     grid-template-columns: 8.5% 22% auto;
     grid-template-areas: auto;

@@ -9,7 +9,7 @@ const NewsRouter = require('./routes/news')
 const CourseRouter = require('./routes/course')
 const authRouter = require('./routes/auth')
 
-mongoose.connect('mongodb://localhost:27017/myproject', {
+mongoose.connect('mongodb+srv://riskiddin98:riskiddin98@cluster0.d5xmv.mongodb.net/idrok', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true
